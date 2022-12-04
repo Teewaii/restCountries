@@ -11,7 +11,7 @@ function App() {
   const [country, setCountry] = useState([])
   const [name, setName] = useState("")
   const [baseurl, setBaseurl] = useState('https://restcountries.com/v3.1/all')
-  const [africa, setAfrica] = useState(false)
+  //  const [africa, setAfrica] = useState(false)
   const [myregion, setMyregion] = useState("Africa")
   const [dispOption, setdispOption] = useState(true)
   const [mode, setMode] = useState(true)
@@ -31,12 +31,14 @@ function App() {
 
 
   return (
-    <div className={mode?"App min-h-screen dark bg-DarkmdBk ":"App min-h-screen  "}>
+    <div className={mode ? "App min-h-screen overflow-scroll scrollbar-hide  dark bg-DarkmdBk " : "App min-h-screen   "}>
       <Nav mode={mode} setMode={setMode} />
       {/* <Search />
       <MainDisplay /> */}
       <Routes>
-        <Route path="/" element={<MainDisplay country={country} dispOption={dispOption} setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} OnChangeurl={OnChangeurl} name={name} baseurl={baseurl} setBaseurl={setBaseurl} />} ></Route>
+        <Route path="/" element={<MainDisplay country={country} dispOption={dispOption}
+          setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} OnChangeurl={OnChangeurl} name={name}
+          baseurl={baseurl} setBaseurl={setBaseurl} mode={mode} />} ></Route>
         <Route path="details/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} />} ></Route>
 
       </Routes>

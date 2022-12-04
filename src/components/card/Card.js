@@ -1,5 +1,5 @@
 import React from 'react'
-import brazil from '../../img/Brazil.png';
+//import brazil from '../../img/Brazil.png';
 import { Link } from 'react-router-dom'
 
 function Card({ country, dispOption, myregion }) {
@@ -7,12 +7,13 @@ function Card({ country, dispOption, myregion }) {
     const mapKey = dispOption ? country : FilterReg;
     return (
         <div className='card wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-10  justify-items-center'>
-        {/* <div className='card wrapper flex flex-col lg:flex-row lg:flex-wrap gap-x-7 gap-y-10'> */}
+            {/* <div className='card wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-10  justify-items-center'> */}
+            {/* <div className='card wrapper flex flex-col lg:flex-row lg:flex-wrap gap-x-7 gap-y-10'> */}
             {
                 mapKey.map(({ name, region, flags, population, capital }, index) => (
-                    <div key={name.common} className='Card lg:w-[250px]'>
+                    <div key={name.common} className='Card  lg:w-[250px]'>
                         <Link className='cursor-pointer list-none' to={`details/${name.common}`}>
-                            <div className="card shadow-lg  hover:shadow-xl hover:scale-105 duration-300 ease-in-out rounded-lg w-[100%]  md:min-w-[250px]">
+                            <div className="card bg-white dark:bg-DarkmdEl dark:text-white shadow-lg  hover:shadow-xl hover:scale-105 duration-300 ease-in-out rounded-lg w-[100%]  md:min-w-[250px]">
                                 <div className="flag min-h-[200px] lg:h-[150px]  overflow-hidden">
                                     <img className='rounded-t-lg  w-[100%]  object-contain' src={flags.png} alt="" />
                                 </div>

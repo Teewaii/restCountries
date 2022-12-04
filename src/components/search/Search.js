@@ -24,11 +24,11 @@ function Search({ country, dispOption, setdispOption, myregion, setMyregion, OnC
                 <div className='input mt-4 lg:mt-12  flex flex-col items-center relative w-[100%] lg:w-[40%] '><MagnifyingGlassIcon className='w-5 text-LtModTxtmdInp opacity-50 absolute left-8 top-[30%] ' /><input className='shadow-lg border dark:bg-DarkmdEl dark:border-0 dark:placeholder{-}opacity-100 dark:text-white focus:shadow-xl w-[100%] text-LtModTxtmdInp rounded-md placeholder-LtModTxtmdInp pl-16 placeholder:text-sm placeholder:opacity-50 py-3 px-4 focus:outline-none' type="text" value={name} onChange={OnChangeurl} placeholder='Search for a country...' /></div>
 
                 <div onClick={ToggleReion} className="filter dark:bg-DarkmdEl dark:border-0 px-5 w-[180px] shadow-lg hover:shadow-xl border py-3 rounded-md flex items-center justify-between relative cursor-pointer">
-                    <p className='text-sm dark:text-white'>{regionFilter}</p> <span className=' caret'>{toggleRegion ? <ChevronDownIcon className='h-4 font-800 text-LtModTxtmdInp' /> : <ChevronUpIcon className='h-4 font-800 text-LtModTxtmdInp' />}</span>
-                    <ul className={toggleRegion ? 'absolute top-14 right-0 left-0 shadow-md bg-white  px-5 rounded-md py-3 text-left text-sm space-y-3 ' : 'hidden'}>
-                        <li onClick={() => { window.location.reload(); setdispOption(true) }}>All</li>
+                    <p className='text-sm dark:text-white '>{regionFilter}</p> <span className=' caret'>{toggleRegion ? <ChevronDownIcon className='h-4 font-800 text-LtModTxtmdInp' /> : <ChevronUpIcon className='h-4 font-800 text-LtModTxtmdInp' />}</span>
+                    <ul className={toggleRegion ? 'absolute top-12 right-0 left-0 shadow-md bg-white dark:bg-DarkmdEl dark:text-white  rounded-md text-left text-sm ' : 'hidden'}>
+                        <li onClick={() => { window.location.reload(); setdispOption(true) }} className="dark:hover:bg-DarkmdBk px-5 py-2 duration-300 ease-in-out">All</li>
                         {regions.map((region, index) => (
-                            <li key={index} onClick={() => { setMyregion(region); setdispOption(false); setRegionFilter(region) }}>{region}</li>
+                            <li key={index} onClick={() => { setMyregion(region); setdispOption(false); setRegionFilter(region) }} className="px-5 py-2 hover:bg-LtModTxtmdInp dark:hover:bg-DarkmdBk ">{region}</li>
                         ))}
                     </ul>
                 </div>
