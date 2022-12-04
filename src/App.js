@@ -14,6 +14,7 @@ function App() {
   const [africa, setAfrica] = useState(false)
   const [myregion, setMyregion] = useState("Africa")
   const [dispOption, setdispOption] = useState(true)
+  const [mode, setMode] = useState(true)
 
   useEffect(() => {
     axios.get(baseurl)
@@ -30,8 +31,8 @@ function App() {
 
 
   return (
-    <div className="App min-h-screen ">
-      <Nav />
+    <div className={mode?"App min-h-screen dark bg-DarkmdBk ":"App min-h-screen  "}>
+      <Nav mode={mode} setMode={setMode} />
       {/* <Search />
       <MainDisplay /> */}
       <Routes>
