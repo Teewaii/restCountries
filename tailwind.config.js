@@ -35,9 +35,9 @@ module.exports = {
         bold: 700,
         extrabold: 800,
       },
-      screens: {
-        '3xl': '1700px',
-      },
+      // screens: {
+      //   '3xl': '1700px',
+      // },
     },
   },
   plugins: [],
