@@ -8,12 +8,11 @@ import { useNavigate } from "react-router-dom";
 import MainDisplay from '../mainDisplay/MainDisplay';
 import { useKeyGen } from 'react-key-from-object'
 
-
-
 function Details({ country, dispOption, myregion }) {
 
     const [borderurl, setBorderurl] = useState('https://restcountries.com/v3.1/alpha/IND')
-    const [bord, setBord] = useState("BGD")
+    const [bord, setBord] = useState("")
+    const [bordi, setBordi] = useState("")
 
     // useEffect(() => {
     //     axios.get(borderurl)
@@ -28,27 +27,29 @@ function Details({ country, dispOption, myregion }) {
     const { name } = useParams()
     const FilterReg = country.filter((cont) => cont.name.common === name);
     // const border = country.filter((cont) => cont.cca3 === bord);
-   
-     const bordTest= country.filter((nam) => nam.cca3 === bord);
-    
-   const test =  bordTest.map(({name})=>(
-        name.common
-     
-     ))
 
-     function BordTest(){
-        setBord(test)
-      
-     }
-     
-    
-// console.log(test)
-// console.log(bord)
-// // {
-//    FilterReg.map(({region,borders,name})=>(
-//     console.log(name)
-//    ))
-// }
+    const bordTest = country.filter((nam) => nam.cca3 === bord);
+
+    const test = bordTest.map(({ name }) => (
+        name.common
+
+    ))
+
+    console.log(bord)
+
+    function BordTest() {
+        setBordi(test)
+
+    }
+
+
+    // console.log(test)
+    // console.log(bord)
+    // // {
+    //    FilterReg.map(({region,borders,name})=>(
+    //     console.log(name)
+    //    ))
+    // }
 
 
     // if (border==true){
@@ -87,7 +88,7 @@ function Details({ country, dispOption, myregion }) {
         <div className="details-container min-h-[fit] pt-8 pb-20 mb-8 lg:mt-16 dark:text-white">
             <div className='container flex flex-col justify-center  '>
                 <button onClick={() => backHome(-1)} className='flex w-fit items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-white dark:bg-DarkmdEl dark:text-white px-4 py-1 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</button>
-                {FilterReg.map(({ region, subregion, population, capital, flags, currencies, borders }) => (
+                {FilterReg.map(({ region, subregion, population, capital, flags, currencies, borders, languages, nativeName }) => (
                     <div key={keyGen.getKey(region)} className="about-country lg:flex flex-col xl:flex-row items-center justify-center gap-x-5 lg:gap-x-10 ">
                         <img className='my-14 lg:h-[320px] 2xl:h-[320px]  ' src={flags.svg} alt="" />
                         <div className="details  w-fit lg:ml-4 flex flex-col  justify-between  space-y-4 max-h-[300px] ">
@@ -95,16 +96,15 @@ function Details({ country, dispOption, myregion }) {
                                 <div className="desc1 flex-1 flex flex-col  items-start text-left space-y-1 mb-6">
                                     <h1 className='text-xl font-bold mb-2'>{name}</h1>
 
-                                    <div className="nativeName flex "><p className='font-[700] text-md '>Native Name:</p><p className='text-md  ml-2'>{name.nativeName}</p></div>
+                                    <div className="nativeName flex "><p className='font-[700] text-md '>Native Name:</p><p className='text-md  ml-2'>Native name</p></div>
                                     <div className="population flex "><p className='font-[700] text-md '>Population:</p><p className='text-md  ml-2'>{population}</p></div>
                                     <div className="region flex"><p className='font-[700] text-md inline'>Region:</p><p className='text-md inline ml-2'>{region}</p></div>
                                     <div className="sub-region flex"><p className='font-[700] text-md inline'>Sub Region:</p><p className='text-md inline ml-2'>{subregion}</p></div>
                                     <div className="capital flex"> <p className='font-[700] text-md'>Capital:</p><p className='text-md inline ml-2'>{capital}</p></div>
                                 </div>
                                 <div className="desc2 space-y-1  mb-6 md:mt-9">
-                                    <div className="nativeName flex "><p className='font-[700] text-md '>Currencies:</p><p className='text-md  ml-2'>{currencies.name}</p></div>
-
-                                    <div className="nativeName flex "><p className='font-[700] text-md '>Languages:</p><p className='text-md  ml-2'>Dutch, French</p></div>
+                                    <div className="nativeName flex "><p className='font-[700] text-md '>Currencies:</p><p className='text-md  ml-2'>{Object.keys(currencies)}</p></div>
+                                    <div className="nativeName flex "><p className='font-[700] text-md '>Languages:</p><p className='text-md  ml-2'>{Object.values(languages)}</p></div>
                                 </div>
 
                             </div>
@@ -113,7 +113,7 @@ function Details({ country, dispOption, myregion }) {
                                 <h1 className='text-md font-bold mb-2'>Border Countries</h1>
                                 <ul className='flex gap-x-2'>
                                     {borders && borders.map((border, index) => (
-                                        <li onClick={BordTest} key={index}><a className='px-3 py-1 shadow-md bg-slate-100 dark:bg-DarkmdEl capitalize' href={bord}> {border}</a></li>
+                                        <li onClick={() => setBord(border)} key={index}><a className='px-3 py-1 shadow-md bg-slate-100 dark:bg-DarkmdEl capitalize' href={test}> {border}</a></li>
                                     ))}
                                 </ul>
                             </div>
