@@ -13,6 +13,7 @@ import { useKeyGen } from 'react-key-from-object'
 function Details({ country, dispOption, myregion }) {
 
     const [borderurl, setBorderurl] = useState('https://restcountries.com/v3.1/alpha/IND')
+    const [bord, setBord] = useState("BGD")
 
     // useEffect(() => {
     //     axios.get(borderurl)
@@ -26,9 +27,36 @@ function Details({ country, dispOption, myregion }) {
 
     const { name } = useParams()
     const FilterReg = country.filter((cont) => cont.name.common === name);
-    const border = country.filter((cont) => cont.cca3 === "IND");
+    // const border = country.filter((cont) => cont.cca3 === bord);
+   
+     const bordTest= country.filter((nam) => nam.cca3 === bord);
+    
+   const test =  bordTest.map(({name})=>(
+        name.common
+     
+     ))
 
-    // const native = border.name
+     function BordTest(){
+        setBord(test)
+      
+     }
+     
+    
+// console.log(test)
+// console.log(bord)
+// // {
+//    FilterReg.map(({region,borders,name})=>(
+//     console.log(name)
+//    ))
+// }
+
+
+    // if (border==true){
+    //     console.log("True")
+    // }
+    // else{
+    //     console.log("False")
+    // }
     // console.log(Object.keys(border))
 
     // {
@@ -56,14 +84,14 @@ function Details({ country, dispOption, myregion }) {
 
     const backHome = useNavigate()
     return (
-        <div className="details-container min-h-[100vh] mt-10 lg:mt-16 dark:text-white">
-            <div className='container'>
-                <button onClick={() => backHome(-1)} className='flex items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-white dark:bg-DarkmdEl dark:text-white px-4 py-1 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</button>
+        <div className="details-container min-h-[fit] pt-8 pb-20 mb-8 lg:mt-16 dark:text-white">
+            <div className='container flex flex-col justify-center  '>
+                <button onClick={() => backHome(-1)} className='flex w-fit items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-white dark:bg-DarkmdEl dark:text-white px-4 py-1 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</button>
                 {FilterReg.map(({ region, subregion, population, capital, flags, currencies, borders }) => (
-                    <div key={keyGen.getKey(region)} className="about-country lg:flex items-center gap-x-5 lg:gap-x-10 ">
-                        <img className='my-14 lg:h-[300px] ' src={flags.svg} alt="" />
-                        <div className="details ml-4 ">
-                            <div className="topLevel md:gap-x-12 lg:flex">
+                    <div key={keyGen.getKey(region)} className="about-country lg:flex flex-col xl:flex-row items-center justify-center gap-x-5 lg:gap-x-10 ">
+                        <img className='my-14 lg:h-[320px] 2xl:h-[320px]  ' src={flags.svg} alt="" />
+                        <div className="details  w-fit lg:ml-4 flex flex-col  justify-between  space-y-4 max-h-[300px] ">
+                            <div className="topLevel md:gap-x-14 md:flex">
                                 <div className="desc1 flex-1 flex flex-col  items-start text-left space-y-1 mb-6">
                                     <h1 className='text-xl font-bold mb-2'>{name}</h1>
 
@@ -82,10 +110,10 @@ function Details({ country, dispOption, myregion }) {
                             </div>
 
                             <div className="desc3 flex flex-col items-start">
-                                <h1 className='text-md font-bold mb-1'>Border Countries</h1>
+                                <h1 className='text-md font-bold mb-2'>Border Countries</h1>
                                 <ul className='flex gap-x-2'>
                                     {borders && borders.map((border, index) => (
-                                        <li key={index}><a className='px-3 py-1 shadow-md dark:bg-DarkmdEl capitalize' href={borderurl}> {border}</a></li>
+                                        <li onClick={BordTest} key={index}><a className='px-3 py-1 shadow-md bg-slate-100 dark:bg-DarkmdEl capitalize' href={bord}> {border}</a></li>
                                     ))}
                                 </ul>
                             </div>

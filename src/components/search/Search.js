@@ -26,7 +26,7 @@ function Search({ country, dispOption, setdispOption, myregion, setMyregion, OnC
                 <div onClick={ToggleReion} className="filter dark:bg-DarkmdEl dark:border-0 px-5 w-[180px] shadow-lg hover:shadow-xl border py-3 rounded-md flex items-center justify-between relative cursor-pointer">
                     <p className='text-sm dark:text-white '>{regionFilter}</p> <span className=' caret'>{toggleRegion ? <ChevronDownIcon className='h-4 font-800 text-LtModTxtmdInp' /> : <ChevronUpIcon className='h-4 font-800 text-LtModTxtmdInp' />}</span>
                     <ul className={toggleRegion ? 'absolute top-12 right-0 left-0 shadow-md bg-white dark:bg-DarkmdEl dark:text-white  rounded-md text-left text-sm ' : 'hidden'}>
-                        <li onClick={() => { window.location.reload(); setdispOption(true) }} className="dark:hover:bg-DarkmdBk px-5 py-2 duration-300 ease-in-out">All</li>
+                        <li onClick={() => { setRegionFilter("Filter by Region"); setdispOption(true) }} className="dark:hover:bg-DarkmdBk px-5 py-2 duration-300 ease-in-out">All</li>
                         {regions.map((region, index) => (
                             <li key={index} onClick={() => { setMyregion(region); setdispOption(false); setRegionFilter(region) }} className="px-5 py-2 hover:bg-LtModTxtmdInp dark:hover:bg-DarkmdBk ">{region}</li>
                         ))}

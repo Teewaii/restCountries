@@ -14,7 +14,7 @@ function App() {
   //  const [africa, setAfrica] = useState(false)
   const [myregion, setMyregion] = useState("Africa")
   const [dispOption, setdispOption] = useState(true)
-  const [mode, setMode] = useState(true)
+  const [mode, setMode] = useState(false)
 
   useEffect(() => {
     axios.get(baseurl)
@@ -39,7 +39,7 @@ function App() {
         <Route path="/" element={<MainDisplay country={country} dispOption={dispOption}
           setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} OnChangeurl={OnChangeurl} name={name}
           baseurl={baseurl} setBaseurl={setBaseurl} mode={mode} />} ></Route>
-        <Route path="details/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} />} ></Route>
+        <Route path="/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} />} ></Route>
 
       </Routes>
     </div>

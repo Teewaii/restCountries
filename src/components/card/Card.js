@@ -12,7 +12,8 @@ function Card({ country, dispOption, myregion }) {
 
             {mapKey.map(({ name, region, flags, population, capital }, index) => (
                 <div key={name.common} className='Card  lg:w-[250px] shadow-lg  hover:shadow-xl hover:scale-105 duration-300 ease-in-out '>
-                    <Link className='cursor-pointer list-none' to={`details/${name.common}`}>
+                    <Link className='cursor-pointer list-none' to={name.common}>
+                    {/* <Link className='cursor-pointer list-none' to={`details/${name.common}`}> */}
                         <div className="card bg-white dark:bg-DarkmdEl dark:text-white rounded-lg w-[100%]  md:min-w-[250px]">
                             <div className="flag min-h-[200px] lg:h-[150px]  overflow-hidden">
                                 <img className='rounded-t-lg  w-[100%]  object-contain' src={flags.png} alt="" />
