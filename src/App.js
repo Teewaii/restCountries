@@ -31,7 +31,7 @@ function App() {
 
 
   return (
-    <div className={mode ? "App min-h-screen overflow-scroll scrollbar-hide  dark bg-DarkmdBk " : "App min-h-screen   "}>
+    <div className={mode ? "App min-h-screen   dark bg-DarkmdBk " : "App min-h-screen   "}>
       <Nav mode={mode} setMode={setMode} />
       {/* <Search />
       <MainDisplay /> */}
