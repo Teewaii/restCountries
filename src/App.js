@@ -32,7 +32,8 @@ function App() {
 
   return (
     <div className={mode ? "App min-h-screen   dark bg-DarkmdBk " : "App min-h-screen   "}>
-      <Nav mode={mode} setMode={setMode} />
+      <Nav mode={mode} setMode={setMode}  
+      setName={setName} />
       {/* <Search />
       <MainDisplay /> */}
       <Routes>
