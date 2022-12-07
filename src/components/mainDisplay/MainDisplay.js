@@ -8,7 +8,7 @@ function MainDisplay({ country, dispOption, myregion, setMyregion, setdispOption
         <section className='main min-h-screen mt-10 h-screen '>
             <div className='container '>
                 <Search country={country} dispOption={dispOption} setdispOption={setdispOption} setMyregion={setMyregion} OnChangeurl={OnChangeurl} name={name} setName={setName} baseurl={baseurl} setBaseurl={setBaseurl} />
-                <Card country={country} dispOption={dispOption} myregion={myregion} setMyregion={setMyregion} mode={mode} />
+                {/* <Card country={country} dispOption={dispOption} myregion={myregion} setMyregion={setMyregion} mode={mode} /> */}
             </div>
         </section>
     )
