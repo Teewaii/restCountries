@@ -40,7 +40,7 @@ function App() {
         <Route path="/" element={<MainDisplay country={country} dispOption={dispOption}
           setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} OnChangeurl={OnChangeurl} name={name}
           baseurl={baseurl} setBaseurl={setBaseurl} mode={mode} />} ></Route>
-        <Route path="/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} />} ></Route>
+        <Route path="/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} setMode={setMode} />} ></Route>
 
       </Routes>
     </div>
