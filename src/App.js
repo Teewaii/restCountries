@@ -40,13 +40,13 @@ function App() {
 
 
       })
-
+ 
   }, [name])
 
-  function OnChangeurl(e) {
-    setBaseurl(`https://restcountries.com/v3.1/name/${name}`)
-    setName(e.target.value)
-  }
+  // function OnChangeurl(e) {
+  //   setBaseurl(`https://restcountries.com/v3.1/name/${name}`)
+  //   setName(e.target.value)
+  // }
   //console.log(country)
 
   return (
@@ -57,7 +57,7 @@ function App() {
       <MainDisplay /> */}
       < Routes >
         <Route path="/" element={<MainDisplay country={country} dispOption={dispOption}
-          setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} OnChangeurl={OnChangeurl} name={name}
+          setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} name={name}
           baseurl={baseurl} setBaseurl={setBaseurl} mode={mode} />} ></Route>
         <Route path="/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} setMode={setMode} />} ></Route>
 

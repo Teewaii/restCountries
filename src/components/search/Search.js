@@ -17,7 +17,7 @@ function Search({ country, dispOption, setdispOption, myregion, setMyregion, OnC
     const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
     const mapKey = dispOption ? country : FilterReg;
 
-    console.log(name)
+    //console.log(name)
 
     //\console.log(Object.values(country.name))
     //console.log(regions.includes("Africa"))
@@ -25,7 +25,7 @@ function Search({ country, dispOption, setdispOption, myregion, setMyregion, OnC
         <div className="search-container flex flex-col mb-10 lg:mb-16">
             <div className="wrapper relative flex flex-col  space-y-8  items-start lg:items-center 
             lg:flex-row lg:justify-between">
-                <div className='input mt-4 lg:mt-12  flex flex-col items-center relative w-[100%] lg:w-[40%] '><MagnifyingGlassIcon className='w-5 text-LtModTxtmdInp opacity-50 absolute left-8 top-[30%] ' /><input value={name} onChange={OnChangeurl} className='shadow-lg border dark:bg-DarkmdEl dark:border-0 dark:placeholder{-}opacity-100 dark:text-white focus:shadow-xl w-[100%] text-LtModTxtmdInp rounded-md placeholder-LtModTxtmdInp pl-16 placeholder:text-sm placeholder:opacity-50 py-3 px-4 focus:outline-none' type="text" placeholder='Search for a country...' />
+                <div className='input mt-4 lg:mt-12  flex flex-col items-center relative w-[100%] lg:w-[40%] '><MagnifyingGlassIcon className='w-5 text-LtModTxtmdInp opacity-50 absolute left-8 top-[30%] ' /><input className='shadow-lg border dark:bg-DarkmdEl dark:border-0 dark:placeholder{-}opacity-100 dark:text-white focus:shadow-xl w-[100%] text-LtModTxtmdInp rounded-md placeholder-LtModTxtmdInp pl-16 placeholder:text-sm placeholder:opacity-50 py-3 px-4 focus:outline-none' type="text" placeholder='Search for a country...' />
 
                 </div>
                 {/* {regions.includes("Africa") ? null : <h1 className='absolute left-8 top-24'>No content found</h1>} */}
