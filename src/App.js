@@ -8,10 +8,9 @@ import Details from './components/details/Details';
 
 function App() {
   const [country, setCountry] = useState([])
-  const [loading, setLoading] = useState(false)
+  //const [loading, setLoading] = useState(false)
   const [name, setName] = useState("")
   const [baseurl, setBaseurl] = useState('https://restcountries.com/v3.1/all')
-  //  const [africa, setAfrica] = useState(false)
   const [myregion, setMyregion] = useState("Africa")
   const [dispOption, setdispOption] = useState(true)
   const [mode, setMode] = useState(false)
@@ -27,7 +26,7 @@ function App() {
       .get(baseurl)
       .then(response =>
         setCountry(response.data),
-        setLoading(true)
+      //  setLoading(true)
 
       )
 
@@ -38,16 +37,21 @@ function App() {
           return
         }
 
-
       })
- 
+
   }, [name])
 
-  // function OnChangeurl(e) {
-  //   setBaseurl(`https://restcountries.com/v3.1/name/${name}`)
-  //   setName(e.target.value)
-  // }
-  //console.log(country)
+  const names = country.map(({name})=>(
+    Object.values(name)[0])
+  )
+  
+  function OnChangeurl(e) {
+    setBaseurl(`https://restcountries.com/v3.1/name/${name}`)
+  //  setName(e.target.value)
+  }
+ 
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
+  console.log(!regions.includes("Afr"))
 
   return (
     <div className={mode ? "App min-h-screen   dark bg-DarkmdBk " : "App min-h-screen   "}>
@@ -57,9 +61,9 @@ function App() {
       <MainDisplay /> */}
       < Routes >
         <Route path="/" element={<MainDisplay country={country} dispOption={dispOption}
-          setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} name={name}
+          setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} OnChangeurl={OnChangeurl} name={name}
           baseurl={baseurl} setBaseurl={setBaseurl} mode={mode} />} ></Route>
-        <Route path="/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} setMode={setMode} />} ></Route>
+        <Route path="details/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} setMode={setMode} />} ></Route>
 
       </Routes>
     </div >

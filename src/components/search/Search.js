@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { ChevronUpIcon } from '@heroicons/react/24/outline';
@@ -16,19 +16,17 @@ function Search({ country, dispOption, setdispOption, myregion, setMyregion, OnC
     }
     const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
     const mapKey = dispOption ? country : FilterReg;
-
-    //console.log(name)
-
-    //\console.log(Object.values(country.name))
+    
+//console.log(Object.values(country.name))
     //console.log(regions.includes("Africa"))
     return (
         <div className="search-container flex flex-col mb-10 lg:mb-16">
-            <div className="wrapper relative flex flex-col  space-y-8  items-start lg:items-center 
+            <div className="wrapper relative  flex flex-col  space-y-8  items-start lg:items-center 
             lg:flex-row lg:justify-between">
-                <div className='input mt-4 lg:mt-12  flex flex-col items-center relative w-[100%] lg:w-[40%] '><MagnifyingGlassIcon className='w-5 text-LtModTxtmdInp opacity-50 absolute left-8 top-[30%] ' /><input className='shadow-lg border dark:bg-DarkmdEl dark:border-0 dark:placeholder{-}opacity-100 dark:text-white focus:shadow-xl w-[100%] text-LtModTxtmdInp rounded-md placeholder-LtModTxtmdInp pl-16 placeholder:text-sm placeholder:opacity-50 py-3 px-4 focus:outline-none' type="text" placeholder='Search for a country...' />
-
+                <div className='input mt-4 lg:mt-12  flex flex-col items-center relative w-[100%] lg:w-[40%] '><MagnifyingGlassIcon className='w-5 text-LtModTxtmdInp opacity-50 absolute left-8 top-[30%] ' /><input  value={name} onChange={OnChangeurl} className='shadow-lg border dark:bg-DarkmdEl dark:border-0 dark:placeholder{-}opacity-100 dark:text-white focus:shadow-xl w-[100%] text-LtModTxtmdInp rounded-md placeholder-LtModTxtmdInp pl-16 placeholder:text-sm placeholder:opacity-50 py-3 px-4 focus:outline-none' type="text" placeholder='Search for a country...' />
+                
                 </div>
-                {/* {regions.includes("Africa") ? null : <h1 className='absolute left-8 top-24'>No content found</h1>} */}
+               {/* {regions.includes("Africa")?null: <h1 className='absolute left-8 top-24'>No content found</h1>} */}
                 <div onClick={ToggleReion} className="filter dark:bg-DarkmdEl dark:border-0 px-5 w-[180px] shadow-lg hover:shadow-xl border py-3 rounded-md flex items-center justify-between relative cursor-pointer">
                     <p className='text-sm dark:text-white '>{regionFilter}</p> <span className=' caret'>{toggleRegion ? <ChevronDownIcon className='h-4 font-800 text-LtModTxtmdInp' /> : <ChevronUpIcon className='h-4 font-800 text-LtModTxtmdInp' />}</span>
                     <ul className={toggleRegion ? 'absolute top-12 right-0 left-0 shadow-md bg-white dark:bg-DarkmdEl dark:text-white  rounded-md text-left text-sm ' : 'hidden'}>
@@ -38,8 +36,9 @@ function Search({ country, dispOption, setdispOption, myregion, setMyregion, OnC
                         ))}
                     </ul>
                 </div>
+            
             </div>
-            <div className="err mt-6"> </div>
+           <div className="err mt-6"> </div>
         </div >
     )
 }
