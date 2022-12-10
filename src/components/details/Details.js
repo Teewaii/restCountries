@@ -9,7 +9,7 @@ import MainDisplay from '../mainDisplay/MainDisplay';
 import { useKeyGen } from 'react-key-from-object'
 
 function Details({ country, dispOption, myregion, setMode }) {
-    window.scrollTo(0, 0);
+    window.scroll(0, 0);
 
     //const [borderurl, setBorderurl] = useState('https://restcountries.com/v3.1/alpha/IND')
     const [bord, setBord] = useState("")
@@ -27,7 +27,7 @@ function Details({ country, dispOption, myregion, setMode }) {
         name.common
     ))
 
-    // console.log(test)
+    //console.log(bord)
 
     // function BordTest() {
     //     setBordi(borderLink)

@@ -47,7 +47,7 @@ function App() {
 
   function OnChangeurl(e) {
     setBaseurl(`https://restcountries.com/v3.1/name/${name}`)
-    //  setName(e.target.value)
+    setName(e.target.value)
   }
 
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
