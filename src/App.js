@@ -26,7 +26,7 @@ function App() {
       .get(baseurl)
       .then(response =>
         setCountry(response.data),
-      //  setLoading(true)
+        //  setLoading(true)
 
       )
 
@@ -41,17 +41,17 @@ function App() {
 
   }, [name])
 
-  const names = country.map(({name})=>(
+  const names = country.map(({ name }) => (
     Object.values(name)[0])
   )
-  
+
   function OnChangeurl(e) {
     setBaseurl(`https://restcountries.com/v3.1/name/${name}`)
-  //  setName(e.target.value)
+    //  setName(e.target.value)
   }
- 
+
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
-  console.log(!regions.includes("Afr"))
+  //console.log(!regions.includes("Afr"))
 
   return (
     <div className={mode ? "App min-h-screen   dark bg-DarkmdBk " : "App min-h-screen   "}>
@@ -60,10 +60,10 @@ function App() {
       {/* <Search />
       <MainDisplay /> */}
       < Routes >
-        <Route path="/" element={<MainDisplay country={country} dispOption={dispOption}
+        <Route path="/restCountries" element={<MainDisplay country={country} dispOption={dispOption}
           setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} OnChangeurl={OnChangeurl} name={name}
           baseurl={baseurl} setBaseurl={setBaseurl} mode={mode} />} ></Route>
-        <Route path="details/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} setMode={setMode} />} ></Route>
+        <Route path="restCountries/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} setMode={setMode} />} ></Route>
 
       </Routes>
     </div >

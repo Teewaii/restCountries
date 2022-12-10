@@ -21,19 +21,18 @@ function Details({ country, dispOption, myregion, setMode }) {
     const FilterReg = country.filter((cont) => cont.name.common === name);
     // const border = country.filter((cont) => cont.cca3 === bord);
 
-    const bordTest = country.filter((nam) => nam.cca3 === bord);
+    const borderCountry = country.filter((nam) => nam.cca3 === bord);
 
-    const test = bordTest.map(({ name }) => (
+    const borderLink = borderCountry.map(({ name }) => (
         name.common
-
     ))
 
     // console.log(test)
 
-    function BordTest() {
-        setBordi(test)
+    // function BordTest() {
+    //     setBordi(borderLink)
 
-    }
+    // }
 
 
 
@@ -47,7 +46,7 @@ function Details({ country, dispOption, myregion, setMode }) {
     return (
         <div className="details-container min-h-[fit] pt-8 pb-20 mb-8 lg:mt-16 dark:text-white ">
             <div className='container flex flex-col justify-center   '>
-                <Link to='/' className='flex w-fit items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-gray-200 dark:bg-DarkmdEl dark:text-white px-4 py-1 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</Link>
+                <Link to='/restCountries' className='flex w-fit items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-gray-200 dark:bg-DarkmdEl dark:text-white px-4 py-1 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</Link>
                 {/* <button onClick={() => backHome(-1)} className='flex w-fit items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-white dark:bg-DarkmdEl dark:text-white px-4 py-1 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</button> */}
                 {FilterReg.map(({ name, region, subregion, population, capital, flags, currencies, borders, languages, nativeName, tld }) => (
                     <div key={keyGen.getKey(region)} className="about-country  lg:flex flex-col xl:flex-row items-center justify-center gap-x-5 lg:gap-x-10 ">
@@ -86,7 +85,7 @@ function Details({ country, dispOption, myregion, setMode }) {
                                 {/* <span className='flex'><h1 className='text-md font-semibold mb-2'>Test:</h1>{country}</span> */}
                                 <ul className='max-w-[650px] flex flex-wrap gap-x-2 gap-y-4'>
                                     {!borders ? "No border" : borders.map((border, index) => (
-                                        <li onClick={() => { setBord(border) }} key={index}><a className='text-sm px-3 py-1 shadow-md bg-slate-100  dark:bg-DarkmdEl capitalize' href={test}> {border}</a></li>
+                                        <li onClick={() => { setBord(border) }} key={index}><a className='text-sm px-3 py-1 shadow-md bg-slate-100  dark:bg-DarkmdEl capitalize' href={borderLink}> {border}</a></li>
 
                                     ))}
                                 </ul>
