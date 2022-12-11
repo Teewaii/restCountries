@@ -12,27 +12,6 @@ import axios from 'axios';
 function Details({ country, dispOption, myregion, setMode }) {
     window.scroll(0, 0);
 
-    // useEffect(() => {
-
-    //     axios
-    //         .get(ca3code)
-    //         .then(response =>
-    //             setCountry(response.data),
-    //             //  setLoading(true)
-
-    //         )
-
-    //         .catch(function (error) {
-    //             if (error.response) {
-    //                 // The request was made and the server responded with a status code
-    //                 // that falls out of the range of 2xx
-    //                 return
-    //             }
-
-    //         })
-
-    // }, [name])
-
     const [borderurl, setBorderurl] = useState("")
     const [bord, setBord] = useState("")
     const [bordi, setBordi] = useState("")
@@ -46,25 +25,18 @@ function Details({ country, dispOption, myregion, setMode }) {
     const borderCountry = country.filter((nam) => nam.cca3 === bord);
     const borderLink = borderCountry.map(({ name }) => (
         name.common
-
-        ///   console.log(name.common) 
     ))
 
-    // console.log(borderLink)
-
-    // console.log(mapper)
     const mapKey = dispOption ? country : FilterReg;
 
-
-    //const backHome = useNavigate()
     return (
-        <div className="details-container min-h-[fit] pt-8 pb-20 mb-8 lg:mt-16 dark:text-white ">
+        <div className="details-container min-h-[fit] pt-8 pb-18 mb-8 lg:mt-16 dark:text-white ">
             <div className='container flex flex-col justify-center   '>
-                <Link to='/' className='flex w-fit items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-gray-200 dark:bg-DarkmdEl dark:text-white px-4 py-1 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</Link>
+                <Link to='/' className='flex w-fit items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-gray-200 dark:bg-DarkmdEl dark:text-white px-4 py-3 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</Link>
                 {/* <button onClick={() => backHome(-1)} className='flex w-fit items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-white dark:bg-DarkmdEl dark:text-white px-4 py-1 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</button> */}
                 {FilterReg.map(({ name, region, subregion, population, capital, flags, currencies, borders, languages, nativeName, tld }) => (
                     <div key={keyGen.getKey(region)} className="about-country  lg:flex flex-col xl:flex-row items-center justify-center gap-x-5 lg:gap-x-10 ">
-                        <img className='my-14 lg:h-[320px] lg:max-w-[500px] 2xl:h-[320px] ' src={flags.svg} alt="" />
+                        <img className='my-8 lg:h-[320px] lg:max-w-[500px] 2xl:h-[320px] ' src={flags.svg} alt="" />
                         <div className="details  w-fit lg:ml-4 flex flex-col   justify-between  space-y-4 max-h-[300px] ">
                             <div className="topLevel md:gap-x-14 md:flex">
                                 <div className="desc1 flex-1 flex flex-col  items-start text-left space-y-1 mb-6">
@@ -93,10 +65,7 @@ function Details({ country, dispOption, myregion, setMode }) {
 
                             <div className="desc3 flex flex-col items-start">
                                 <h1 className='text-md font-semibold mb-2'>Border Countries:</h1>
-                                {/* {Object.values(languages).map(lang)=>(lang
-                                
-                                console.log())} */}
-                                {/* <span className='flex'><h1 className='text-md font-semibold mb-2'>Test:</h1>{country}</span> */}
+
                                 <ul className='max-w-[650px] flex flex-wrap gap-x-2 gap-y-4'>
                                     {!borders ? "No border" : borders.map((border, index) => (
                                         // <Link onClick={() => { setBord(border) }} key={index} className='text-sm px-3 py-1 shadow-md bg-slate-100  dark:bg-DarkmdEl capitalize' to={`/${borderLink}`}> {border}</Link>

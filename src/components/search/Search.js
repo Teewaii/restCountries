@@ -23,7 +23,7 @@ function Search({ country, dispOption, setdispOption, myregion, setMyregion, OnC
         <div className="search-container flex flex-col mb-10 lg:mb-16">
             <div className="wrapper relative  flex flex-col  space-y-8  items-start lg:items-center 
             lg:flex-row lg:justify-between">
-                <div className='input mt-4 lg:mt-12  flex flex-col items-center relative w-[100%] lg:w-[40%] '><MagnifyingGlassIcon className='w-5 text-LtModTxtmdInp opacity-50 absolute left-8 top-[30%] ' />
+                <div className='input  lg:mt-12  flex flex-col items-center relative w-[100%] lg:w-[40%] '><MagnifyingGlassIcon className='w-5 text-LtModTxtmdInp opacity-50 absolute left-8 top-[30%] ' />
                     <input
                         type='search'
                         name='search'
