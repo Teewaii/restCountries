@@ -30,14 +30,14 @@ function Details({ country, dispOption, myregion, setMode }) {
     const mapKey = dispOption ? country : FilterReg;
 
     return (
-        <div className="details-container min-h-[fit] pt-8 pb-18 mb-8 lg:mt-16 dark:text-white ">
+        <div className="details-container min-h-screen pt-8 pb-18 mb-8 lg:mt-16 dark:text-white overflow-hidden">
             <div className='container flex flex-col justify-center   '>
                 <Link to='/' className='flex w-fit items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-gray-200 dark:bg-DarkmdEl dark:text-white px-4 py-3 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</Link>
                 {/* <button onClick={() => backHome(-1)} className='flex w-fit items-center gap-x-1 shadow-lg text-sm text-LtModTxtmdInp bg-white dark:bg-DarkmdEl dark:text-white px-4 py-1 md:px-9 md:py-4 dark:hover:opacity-50   hover:bg-gray-300 hover:text-black  duration-300 ease-in-out'><ArrowLongLeftIcon className='w-5 text-black dark:text-white' /> Back</button> */}
                 {FilterReg.map(({ name, region, subregion, population, capital, flags, currencies, borders, languages, nativeName, tld }) => (
-                    <div key={keyGen.getKey(region)} className="about-country  lg:flex flex-col xl:flex-row items-center justify-center gap-x-5 lg:gap-x-10 ">
+                    <div key={keyGen.getKey(region)} className="about-country pb-[8rem] lg:flex flex-col xl:flex-row items-center justify-center gap-x-5 lg:gap-x-10 ">
                         <img className='my-8 lg:h-[320px] lg:max-w-[500px] 2xl:h-[320px] ' src={flags.svg} alt="" />
-                        <div className="details  w-fit lg:ml-4 flex flex-col   justify-between  space-y-4 max-h-[300px] ">
+                        <div className="details  w-fit ml-4 lg:ml-4 flex flex-col   justify-between  space-y-4 max-h-[300px] ">
                             <div className="topLevel md:gap-x-14 md:flex">
                                 <div className="desc1 flex-1 flex flex-col  items-start text-left space-y-1 mb-6">
                                     <h1 className='text-xl font-bold mb-2'>{Object.values(name.common)}</h1>
@@ -51,10 +51,10 @@ function Details({ country, dispOption, myregion, setMode }) {
                                     <div className="nativeName flex "><p className='font-semibold text-md '>Top Level Domain:</p><p className='text-md  ml-2'>{Object.values(tld)}</p></div>
 
                                     <div className="nativeName flex "><p className='font-semibold text-md '>Currencies:</p><p className='text-md  ml-2'>{Object.values(currencies)[0].name}</p></div>
-                                    <div className="languages font-medium flex ">Language(s):
+                                    <div className="languages font-semibold flex ">Language(s):
                                         <ul className='flex flex-wrap'>
                                             {Object.values(languages).map((language, index) => (
-                                                <li key={index} className='text-md relative after:content-[","] last:after:content-[""] ml-2'>{language}</li>
+                                                <li key={index} className='text-md  relative after:content-[","] last:after:content-[""] ml-2'>{language}</li>
 
                                             ))}
                                         </ul>
