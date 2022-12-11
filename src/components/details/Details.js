@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import millify from "millify";
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
@@ -7,12 +7,34 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import MainDisplay from '../mainDisplay/MainDisplay';
 import { useKeyGen } from 'react-key-from-object'
+import axios from 'axios';
 
 function Details({ country, dispOption, myregion, setMode }) {
     window.scroll(0, 0);
 
+    // useEffect(() => {
+
+    //     axios
+    //         .get(ca3code)
+    //         .then(response =>
+    //             setCountry(response.data),
+    //             //  setLoading(true)
+
+    //         )
+
+    //         .catch(function (error) {
+    //             if (error.response) {
+    //                 // The request was made and the server responded with a status code
+    //                 // that falls out of the range of 2xx
+    //                 return
+    //             }
+
+    //         })
+
+    // }, [name])
+
     const [borderurl, setBorderurl] = useState("")
-    const [bord, setBord] = useState("NGA")
+    const [bord, setBord] = useState("")
     const [bordi, setBordi] = useState("")
 
     const keyGen = useKeyGen();//Asign auto generated keys to mapped items
@@ -21,25 +43,20 @@ function Details({ country, dispOption, myregion, setMode }) {
     const FilterReg = country.filter((cont) => cont.name.common === name);
     // const border = country.filter((cont) => cont.cca3 === bord);
 
-    const borderCountry = country.filter((nam) => nam.cca3 ===bord);
-
-  
+    const borderCountry = country.filter((nam) => nam.cca3 === bord);
     const borderLink = borderCountry.map(({ name }) => (
         name.common
-        
-     ///   console.log(name.common) 
-    ))
- 
-   console.log(borderLink)
-   
-  // console.log(mapper)
-    const mapKey = dispOption ? country : FilterReg;
-    // const theCountry = country.name = name
-    // console.log(theCountry)
-    // const { region, nativeName } = FilterReg
-    // console.log(region)
 
-    const backHome = useNavigate()
+        ///   console.log(name.common) 
+    ))
+
+    // console.log(borderLink)
+
+    // console.log(mapper)
+    const mapKey = dispOption ? country : FilterReg;
+
+
+    //const backHome = useNavigate()
     return (
         <div className="details-container min-h-[fit] pt-8 pb-20 mb-8 lg:mt-16 dark:text-white ">
             <div className='container flex flex-col justify-center   '>
@@ -66,7 +83,7 @@ function Details({ country, dispOption, myregion, setMode }) {
                                         <ul className='flex flex-wrap'>
                                             {Object.values(languages).map((language, index) => (
                                                 <li key={index} className='text-md relative after:content-[","] last:after:content-[""] ml-2'>{language}</li>
-                                              
+
                                             ))}
                                         </ul>
                                     </div>
@@ -82,9 +99,9 @@ function Details({ country, dispOption, myregion, setMode }) {
                                 {/* <span className='flex'><h1 className='text-md font-semibold mb-2'>Test:</h1>{country}</span> */}
                                 <ul className='max-w-[650px] flex flex-wrap gap-x-2 gap-y-4'>
                                     {!borders ? "No border" : borders.map((border, index) => (
-                                        <Link onClick={() => { setBord(border) }}  key={index} className='text-sm px-3 py-1 shadow-md bg-slate-100  dark:bg-DarkmdEl capitalize'  to={`/${borderLink}`}> {border}</Link>
-                                        // <li onClick={() => { setBord(border) }} key={index}><a className='text-sm px-3 py-1 shadow-md bg-slate-100  dark:bg-DarkmdEl capitalize' href={borderLink}> {border}</a></li>
-                            
+                                        // <Link onClick={() => { setBord(border) }} key={index} className='text-sm px-3 py-1 shadow-md bg-slate-100  dark:bg-DarkmdEl capitalize' to={`/${borderLink}`}> {border}</Link>
+                                        <li onClick={() => { setBord(border) }} key={index}><a className='text-sm px-3 py-1 shadow-md bg-slate-100  dark:bg-DarkmdEl capitalize' href={borderLink}> {border}</a></li>
+
                                     ))}
                                 </ul>
                             </div>
