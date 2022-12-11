@@ -11,8 +11,8 @@ import { useKeyGen } from 'react-key-from-object'
 function Details({ country, dispOption, myregion, setMode }) {
     window.scroll(0, 0);
 
-    //const [borderurl, setBorderurl] = useState('https://restcountries.com/v3.1/alpha/IND')
-    const [bord, setBord] = useState("")
+    const [borderurl, setBorderurl] = useState("")
+    const [bord, setBord] = useState("NGA")
     const [bordi, setBordi] = useState("")
 
     const keyGen = useKeyGen();//Asign auto generated keys to mapped items
@@ -21,21 +21,18 @@ function Details({ country, dispOption, myregion, setMode }) {
     const FilterReg = country.filter((cont) => cont.name.common === name);
     // const border = country.filter((cont) => cont.cca3 === bord);
 
-    const borderCountry = country.filter((nam) => nam.cca3 === bord);
+    const borderCountry = country.filter((nam) => nam.cca3 ===bord);
 
+  
     const borderLink = borderCountry.map(({ name }) => (
         name.common
+        
+     ///   console.log(name.common) 
     ))
-
-    //console.log(bord)
-
-    // function BordTest() {
-    //     setBordi(borderLink)
-
-    // }
-
-
-
+ 
+   console.log(borderLink)
+   
+  // console.log(mapper)
     const mapKey = dispOption ? country : FilterReg;
     // const theCountry = country.name = name
     // console.log(theCountry)
@@ -69,7 +66,7 @@ function Details({ country, dispOption, myregion, setMode }) {
                                         <ul className='flex flex-wrap'>
                                             {Object.values(languages).map((language, index) => (
                                                 <li key={index} className='text-md relative after:content-[","] last:after:content-[""] ml-2'>{language}</li>
-
+                                              
                                             ))}
                                         </ul>
                                     </div>
@@ -85,8 +82,9 @@ function Details({ country, dispOption, myregion, setMode }) {
                                 {/* <span className='flex'><h1 className='text-md font-semibold mb-2'>Test:</h1>{country}</span> */}
                                 <ul className='max-w-[650px] flex flex-wrap gap-x-2 gap-y-4'>
                                     {!borders ? "No border" : borders.map((border, index) => (
-                                        <li onClick={() => { setBord(border) }} key={index}><a className='text-sm px-3 py-1 shadow-md bg-slate-100  dark:bg-DarkmdEl capitalize' href={borderLink}> {border}</a></li>
-
+                                        <Link onClick={() => { setBord(border) }}  key={index} className='text-sm px-3 py-1 shadow-md bg-slate-100  dark:bg-DarkmdEl capitalize'  to={`/${borderLink}`}> {border}</Link>
+                                        // <li onClick={() => { setBord(border) }} key={index}><a className='text-sm px-3 py-1 shadow-md bg-slate-100  dark:bg-DarkmdEl capitalize' href={borderLink}> {border}</a></li>
+                            
                                     ))}
                                 </ul>
                             </div>
