@@ -1,5 +1,5 @@
 {
-  "homepage": "https://Teewaii.github.io/restCountries",
+  
   "name": "rest-countries",
   "version": "0.1.0",
   "private": true,
@@ -20,9 +20,11 @@
     "tailwind-scrollbar-hide": "^1.1.7",
     "web-vitals": "^2.1.4"
   },
+  
+  "homepage": "/restCountries",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build -r https://github.com/teewaii/restCountries",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
