@@ -13,11 +13,11 @@ function Card({ country, dispOption, myregion }) {
                     <Link className='cursor-pointer list-none' to={name.common}>
                         {/* <Link className='cursor-pointer list-none' to={`details/${name.common}`}> */}
                         <div className="card bg-white dark:bg-DarkmdEl dark:text-white rounded-lg w-[100%]  md:min-w-[250px]">
-                            <div className="flag min-h-[200px] lg:h-[150px]  overflow-hidden">
-                                <img className='rounded-t-lg  w-[100%]  object-contain' src={flags ? flags.svg : flags.png} alt="" />
+                            <div className="flag h-[150px] lg:h-[150px]  overflow-hidden">
+                                <img className='rounded-t-lg  w-[300px] h-[100%] object-cover' src={flags ? flags.svg : flags.png} alt="" />
                             </div>
-                            <div className="desc py-6 lg:py-0 lg:pb-8 flex flex-col items-start  ml-6 ">
-                                <h1 className='text-xl font-bold mb-4'>{name.common}</h1>
+                            <div className="desc py-6 lg:py-4 lg:pb-8 flex flex-col items-start  ml-6 ">
+                                <h1 className='text-xl text-left font-bold mb-4'>{name.common}</h1>
                                 <div className="population flex "><p className='font-[700] text-md '>Population:</p><p className='text-md  ml-2'>{millify(population)}</p></div>
                                 <div className="region flex"><p className='font-[700] text-md inline'>Region:</p><p className='text-md inline ml-2'>{region}</p></div>
                                 <div className="capital flex"> <p className='font-[700] text-md'>Capital:</p><p className='text-md inline ml-2'>{capital}</p></div>
