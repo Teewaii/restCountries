@@ -15,6 +15,13 @@ function App() {
   const [dispOption, setdispOption] = useState(true)
   const [mode, setMode] = useState(false)
 
+  // useEffect(() => {
+  //   localStorage.setItem('mode', JSON.stringify(mode));
+  // }, [mode]);
+  
+
+
+
   useEffect(() => {
     
     axios
@@ -49,7 +56,7 @@ function App() {
   //console.log(!regions.includes("Afr"))
 
   return (
-    <div className={mode ? "App min-h-screen   dark bg-DarkmdBk " : "App min-h-screen   "}>
+    <div className={mode ? "App min-h-screen   dark bg-DarkmdBk  " : "App min-h-screen   "}>
       <Nav mode={mode} setMode={setMode}
         setName={setName} />
      
