@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/teewaii/restCountries/static/css/main.f1f91af5.css",
-    "main.js": "/teewaii/restCountries/static/js/main.e9471c9d.js",
-    "static/js/787.7ab103b3.chunk.js": "/teewaii/restCountries/static/js/787.7ab103b3.chunk.js",
-    "static/media/Brazil.png": "/teewaii/restCountries/static/media/Brazil.2f12aeed6cab89d1210b.png",
-    "index.html": "/teewaii/restCountries/index.html",
-    "main.f1f91af5.css.map": "/teewaii/restCountries/static/css/main.f1f91af5.css.map",
-    "main.e9471c9d.js.map": "/teewaii/restCountries/static/js/main.e9471c9d.js.map",
-    "787.7ab103b3.chunk.js.map": "/teewaii/restCountries/static/js/787.7ab103b3.chunk.js.map"
+    "main.css": "/restCountries/static/css/main.f1f91af5.css",
+    "main.js": "/restCountries/static/js/main.aa12df9a.js",
+    "static/js/787.7ab103b3.chunk.js": "/restCountries/static/js/787.7ab103b3.chunk.js",
+    "static/media/Brazil.png": "/restCountries/static/media/Brazil.2f12aeed6cab89d1210b.png",
+    "index.html": "/restCountries/index.html",
+    "main.f1f91af5.css.map": "/restCountries/static/css/main.f1f91af5.css.map",
+    "main.aa12df9a.js.map": "/restCountries/static/js/main.aa12df9a.js.map",
+    "787.7ab103b3.chunk.js.map": "/restCountries/static/js/787.7ab103b3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f1f91af5.css",
-    "static/js/main.e9471c9d.js"
+    "static/js/main.aa12df9a.js"
   ]
 }
