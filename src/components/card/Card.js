@@ -1,5 +1,4 @@
-import React from 'react'
-//import brazil from '../../img/Brazil.png';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import millify from "millify";
@@ -9,9 +8,6 @@ function Card({ country, dispOption, myregion }) {
     const mapKey = dispOption ? country : FilterReg;
     return (
         <div className='card wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-10  justify-items-center '>
-            {/* <div className='card wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-10  justify-items-center'> */}
-            {/* <div className='card wrapper flex flex-col lg:flex-row lg:flex-wrap gap-x-7 gap-y-10'> */}
-
             {mapKey.map(({ name, region, flags, population, capital }, index) => (
                 <div key={name.common} className='Card  lg:w-[250px] shadow-lg  hover:shadow-xl hover:scale-105 duration-300 ease-in-out '>
                     <Link className='cursor-pointer list-none' to={name.common}>

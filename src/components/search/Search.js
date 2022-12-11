@@ -17,8 +17,6 @@ function Search({ country, dispOption, setdispOption, myregion, setMyregion, OnC
     const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
     const mapKey = dispOption ? country : FilterReg;
 
-    //console.log(Object.values(country.name))
-    //console.log(regions.includes("Africa"))
     return (
         <div className="search-container flex flex-col mb-10 lg:mb-16">
             <div className="wrapper relative  flex flex-col  space-y-8  items-start lg:items-center 

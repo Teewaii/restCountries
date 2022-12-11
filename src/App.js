@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Route, Routes,BrowserRouter } from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import MainDisplay from './components/mainDisplay/MainDisplay';
 import Nav from './components/nav/Nav';
 import Details from './components/details/Details';
@@ -18,12 +18,12 @@ function App() {
   // useEffect(() => {
   //   localStorage.setItem('mode', JSON.stringify(mode));
   // }, [mode]);
-  
+
 
 
 
   useEffect(() => {
-    
+
     axios
       .get(baseurl)
       .then(response =>
@@ -56,15 +56,15 @@ function App() {
   //console.log(!regions.includes("Afr"))
 
   return (
-    <div className={mode ? "App min-h-screen   dark bg-DarkmdBk  " : "App min-h-screen   "}>
+    <div className={mode ? "App dark bg-DarkmdBk" : "App   "}>
       <Nav mode={mode} setMode={setMode}
         setName={setName} />
-     
+
       < Routes    >
         <Route path="/" element={<MainDisplay country={country} dispOption={dispOption}
           setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} OnChangeurl={OnChangeurl} name={name}
           baseurl={baseurl} setBaseurl={setBaseurl} mode={mode} />} ></Route>
-        <Route path="/:name"  element={<Details country={country} dispOption={dispOption} myregion={myregion} setMode={setMode} />} ></Route>
+        <Route path="/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} setMode={setMode} />} ></Route>
 
       </Routes>
     </div >
