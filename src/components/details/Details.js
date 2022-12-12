@@ -12,17 +12,19 @@ import axios from 'axios';
 function Details({ country, dispOption, myregion, setMode }) {
     window.scroll(0, 0);
 
-    const [borderurl, setBorderurl] = useState("")
-    const [bord, setBord] = useState("")
-    const [bordi, setBordi] = useState("")
+    //const [borderurl, setBorderurl] = useState("")
+    const [bord, setBord] = useState("") //state for storing border countries cca3 code.
+    //const [bordi, setBordi] = useState("")
 
     const keyGen = useKeyGen();//Asign auto generated keys to mapped items
 
     const { name } = useParams()
-    const FilterReg = country.filter((cont) => cont.name.common === name);
-    // const border = country.filter((cont) => cont.cca3 === bord);
-
+    //filter through the entire data set to get the data of any country whose "name" matches the name parameter
+    const FilterReg = country.filter((targetCountry) => targetCountry.name.common === name);
+    
+    //get the data of the country whose cca3 code matches the data in the bord state
     const borderCountry = country.filter((nam) => nam.cca3 === bord);
+   //extract the name parameter from the data stored in bordCountry for creating the href of the border country concern
     const borderLink = borderCountry.map(({ name }) => (
         name.common
     ))

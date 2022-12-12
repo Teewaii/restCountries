@@ -11,7 +11,7 @@ body {
 }
 
 html {
-  height: 110vh;
+  max-height: 110vh;
 }
 
 code {
