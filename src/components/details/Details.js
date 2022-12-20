@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import millify from "millify";
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
@@ -8,10 +8,13 @@ import { useNavigate } from "react-router-dom";
 import MainDisplay from '../mainDisplay/MainDisplay';
 import { useKeyGen } from 'react-key-from-object'
 import axios from 'axios';
+import { AppContext } from '../../App';
 
-function Details({ country, dispOption, myregion, setMode }) {
+
+function Details() {
     window.scroll(0, 0);
-
+    
+    const { country, dispOption, myregion, setMode } = useContext(AppContext);
     //const [borderurl, setBorderurl] = useState("")
     const [bord, setBord] = useState("") //state for storing border countries cca3 code.
     //const [bordi, setBordi] = useState("")
@@ -21,10 +24,10 @@ function Details({ country, dispOption, myregion, setMode }) {
     const { name } = useParams()
     //filter through the entire data set to get the data of any country whose "name" matches the name parameter
     const FilterReg = country.filter((targetCountry) => targetCountry.name.common === name);
-    
+
     //get the data of the country whose cca3 code matches the data in the bord state
     const borderCountry = country.filter((nam) => nam.cca3 === bord);
-   //extract the name parameter from the data stored in bordCountry for creating the href of the border country concern
+    //extract the name parameter from the data stored in bordCountry for creating the href of the border country concern
     const borderLink = borderCountry.map(({ name }) => (
         name.common
     ))

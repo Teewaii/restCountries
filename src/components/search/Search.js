@@ -1,10 +1,12 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { ChevronUpIcon } from '@heroicons/react/24/outline';
+import { AppContext } from '../../App';
 
-function Search({ country, dispOption, setdispOption, myregion, setMyregion, OnChangeurl, name, setBaseurl, setName }) {
+function Search() {
+    const { country, dispOption, myregion, setMyregion, setdispOption, OnChangeurl, baseurl, setBaseurl, name, setName } = useContext(AppContext);
     //set state for toggling regions list
     const [regionFilter, setRegionFilter] = useState("Filter by Region") //Set state for the region filter label. The region filter label is expected to change state/title to the specific region selected from the list of regions
     const [toggleRegion, setToggleRegion] = useState(false)

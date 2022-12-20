@@ -1,10 +1,12 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createContext } from 'react';
 import axios from 'axios';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import MainDisplay from './components/mainDisplay/MainDisplay';
 import Nav from './components/nav/Nav';
 import Details from './components/details/Details';
+
+export const AppContext = createContext();
 
 function App() {
   const [country, setCountry] = useState([])
@@ -14,12 +16,6 @@ function App() {
   const [myregion, setMyregion] = useState("Africa")
   const [dispOption, setdispOption] = useState(true)
   const [mode, setMode] = useState(false)
-
-  // useEffect(() => {
-  //   localStorage.setItem('mode', JSON.stringify(mode));
-  // }, [mode]);
-
-
 
 
   useEffect(() => {
@@ -59,14 +55,12 @@ function App() {
     <div className={mode ? "App dark bg-DarkmdBk" : "App   "}>
       <Nav mode={mode} setMode={setMode}
         setName={setName} />
-
-      < Routes    >
-        <Route path="/" element={<MainDisplay country={country} dispOption={dispOption}
-          setdispOption={setdispOption} myregion={myregion} setMyregion={setMyregion} OnChangeurl={OnChangeurl} name={name}
-          baseurl={baseurl} setBaseurl={setBaseurl} mode={mode} />} ></Route>
-        <Route path="/:name" element={<Details country={country} dispOption={dispOption} myregion={myregion} setMode={setMode} />} ></Route>
-
-      </Routes>
+      <AppContext.Provider value={{ name, setName, baseurl, setBaseurl, myregion, setMyregion, dispOption, setdispOption, mode, setMode, country, setCountry, OnChangeurl }}>
+        < Routes    >
+          <Route path="/" element={<MainDisplay />} ></Route>
+          <Route path="/:name" element={<Details />} ></Route>
+        </Routes>
+      </AppContext.Provider>
     </div >
   );
 }
